@@ -37,12 +37,13 @@
     import api from '@/utils/api'
 
     export default class extends wepy.app {
-      config = {
-        pages: [
-          'pages/index',
-          'pages/user',
-          'pages/auth/login'
-        ],
+        config = {
+            pages: [
+                'pages/index',
+                'pages/users/me',
+                'pages/auth/login',
+                'pages/auth/register',
+            ],
         window: {
           backgroundTextStyle: 'light',
           navigationBarBackgroundColor: '#fff',
