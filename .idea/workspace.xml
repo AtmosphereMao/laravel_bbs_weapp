@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e43bad5-cdbe-45c8-896e-12fbfb7add86" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.wpy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/auth/login.wpy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/login.wpy" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,13 +25,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.wpy" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.wpy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.wpy">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
               <caret line="45" column="14" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
               <folding>
                 <element signature="e#639#662#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.wpy" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/auth/register.wpy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="530">
+              <caret line="136" column="9" selection-start-line="136" selection-start-column="9" selection-end-line="136" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#image#0;n#view#1;n#view#1;n#modal#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#2413#2436#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,8 +80,8 @@
       <file leaf-file-name="login.wpy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/auth/login.wpy">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1914">
-              <caret line="88" column="39" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
+            <state relative-caret-position="398">
+              <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
               <folding>
                 <element signature="e#1832#1855#0" expanded="true" />
               </folding>
@@ -110,13 +122,14 @@
       <list>
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/pages/index.wpy" />
-        <option value="$PROJECT_DIR$/src/pages/auth/login.wpy" />
         <option value="F:/homestead/scripts/homestead.rb" />
         <option value="F:/homestead/Homestead.yaml" />
         <option value="$PROJECT_DIR$/src/pages/user.wpy" />
         <option value="$PROJECT_DIR$/src/utils/api.js" />
         <option value="$PROJECT_DIR$/src/pages/users/me.wpy" />
         <option value="$PROJECT_DIR$/src/app.wpy" />
+        <option value="$PROJECT_DIR$/src/pages/auth/login.wpy" />
+        <option value="$PROJECT_DIR$/src/pages/auth/register.wpy" />
       </list>
     </option>
   </component>
@@ -232,12 +245,12 @@
       <workItem from="1580967222270" duration="1853000" />
       <workItem from="1580979383844" duration="1838000" />
       <workItem from="1581054331878" duration="4892000" />
-      <workItem from="1581139023749" duration="1352000" />
+      <workItem from="1581139023749" duration="1503000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21039000" />
+    <option name="totallyTimeSpent" value="21190000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
@@ -557,16 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/auth/login.wpy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1914">
-          <caret line="88" column="39" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
-          <folding>
-            <element signature="e#1832#1855#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/homestead/scripts/homestead.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -614,6 +617,27 @@
           <caret line="45" column="14" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
           <folding>
             <element signature="e#639#662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/auth/login.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+          <folding>
+            <element signature="e#1832#1855#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/auth/register.wpy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="136" column="9" selection-start-line="136" selection-start-column="9" selection-end-line="136" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#image#0;n#view#1;n#view#1;n#modal#0;n#view#0;n#view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#2413#2436#0" expanded="true" />
           </folding>
         </state>
       </provider>
