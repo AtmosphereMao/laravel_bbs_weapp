@@ -24,7 +24,7 @@
                 <!-- 已登录 -->
                 <navigator class="weui-cell" wx:if="{{ user }}" url="/pages/users/edit">
                     <view class="weui-cell__hd avatar-wrap">
-                        <image class="avatar" src="{{ user.avatar }}"/>
+                        <image class="avatar" src="{{ user.avatar }}" style="width: 50%"/>
                     </view>
                     <view class="weui-cell__bd">
                         <view>{{ user.name }}</view>
@@ -35,7 +35,7 @@
                 <!-- 未登录 -->
                 <navigator class="weui-cell" wx:else url="/pages/auth/login">
                     <view class="weui-cell__hd avatar-wrap">
-                        <image src="/images/user.png" class="avatar"/>
+                        <image src="/images/user.png" class="avatar" style="width: 50%"/>
                     </view>
                     <view class="weui-cell__bd">
                         <view>未登录</view>

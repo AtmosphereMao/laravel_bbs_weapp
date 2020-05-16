@@ -10,12 +10,12 @@
     <view class="page">
         <view class="page__bd">
             <form bindsubmit="submit">
-                <!-- 填写姓名 -->
-                <view class="weui-cells__title">姓名</view>
+                <!-- 填写用户名 -->
+                <view class="weui-cells__title">用户名</view>
                 <view class="weui-cells weui-cells_after-title">
                     <view class="weui-cell weui-cell_input">
                         <view class="weui-cell__bd">
-                            <input class="weui-input" placeholder="请输入姓名" name="name" value="{{ user.name }}" />
+                            <input class="weui-input" placeholder="请输入用户名" name="name" value="{{ user.name }}" />
                         </view>
                         <view wx:if="{{ errors.name }}" class="weui-cell__ft">
                             <icon type="warn" size="23" color="#E64340"></icon>
@@ -25,36 +25,35 @@
                 <!-- 姓名错误信息 -->
                 <view wx:if="{{ errors.name }}" class="weui-cells__tips error-message">{{ errors.name[0] }}</view>
 
-                <!-- 填写邮箱 -->
+                <!-- 邮箱 -->
                 <view class="weui-cells__title">邮箱</view>
                 <view class="weui-cells weui-cells_after-title">
                     <view class="weui-cell weui-cell_input">
                         <view class="weui-cell__bd">
-                            <input class="weui-input" placeholder="请输入邮箱" name="email" value="{{ user.email }}" />
-                        </view>
-                        <view wx:if="{{ errors.email }}" class="weui-cell__ft">
-                            <icon type="warn" size="23" color="#E64340"></icon>
+                            <view class="weui-input">{{ user.email }}</view>
                         </view>
                     </view>
                 </view>
-                <!-- 邮箱错误信息 -->
-                <view wx:if="{{ errors.email }}" class="weui-cells__tips error-message">{{ errors.email[0] }}</view>
 
-                <!-- 填写简介 -->
-                <view class="weui-cells__title">个人简介</view>
+                <!-- 账号积分 -->
+                <view class="weui-cells__title">账号积分</view>
                 <view class="weui-cells weui-cells_after-title">
-                    <view class="weui-cell">
+                    <view class="weui-cell weui-cell_input">
                         <view class="weui-cell__bd">
-                            <textarea class="weui-textarea introduction" placeholder="请输入简介" name="introduction" value="{{ user.introduction }}" />
-                        </view>
-                        <view wx:if="{{ errors.introduction }}" class="weui-cell__ft">
-                            <icon type="warn" size="23" color="#E64340"></icon>
+                            <view class="weui-input">{{ user.balance }}</view>
                         </view>
                     </view>
                 </view>
-                <!-- 简介错误信息 -->
-                <view wx:if="{{ errors.introduction }}" class="weui-cells__tips error-message">{{ errors.introduction[0] }}</view>
 
+                <!-- 账号创建时间 -->
+                <view class="weui-cells__title">注册时间</view>
+                <view class="weui-cells weui-cells_after-title">
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__bd">
+                            <view class="weui-input">{{ user.created_at }}</view>
+                        </view>
+                    </view>
+                </view>
                 <!-- 提交表单 -->
                 <view class="weui-btn-area">
                     <button class="weui-btn" type="primary" formType="submit">修改</button>

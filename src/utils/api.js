@@ -1,7 +1,7 @@
 import wepy from 'wepy'
 
 // 服务器接口地址
-const host = 'http://192.168.10.10/api'
+const host = 'http://localhost/api/v2'
 
 // 普通请求
 const request = async (options, showLoading = true) => {
@@ -45,7 +45,7 @@ const login = async (params = {}) => {
 
     // 接口请求 weapp/authorizations
   let authResponse = await request({
-    url: 'weapp/authorizations',
+    url: 'authorizations/login',
     data: params,
     method: 'POST'
   })

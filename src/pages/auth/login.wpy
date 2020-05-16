@@ -8,14 +8,14 @@
         <view class="page__bd login-wrap">
             <view class="weui-toptips weui-toptips_warn" wx:if="{{ errorMessage }}">{{ errorMessage }}</view>
 
-            <view class="weui-cells__title">Larabbs 用户登录</view>
+            <view class="weui-cells__title">AtmosphereMao+ 用户登录</view>
             <view class="weui-cells weui-cells_after-title">
                 <view class="weui-cell weui-cell_input {{ error ? 'weui-cell_warn' : ''}}">
                     <view class="weui-cell__hd">
                         <view class="weui-label">用户名</view>
                     </view>
                     <view class="weui-cell__bd">
-                        <input class="weui-input" placeholder="手机号或邮箱" @input="bindUsernameInput" />
+                        <input class="weui-input" placeholder="用户名或邮箱" @input="bindUsernameInput" />
                     </view>
                     <view wx:if="{{ error }}" class="weui-cell__ft">
                         <icon type="warn" size="23" color="#E64340"></icon>
@@ -35,7 +35,7 @@
             </view>
 
             <view class="weui-agree__text">
-                如果你还没有 Larabbs 用户可以 <navigator url="/pages/auth/register" class="weui-agree__link">注册新用户</navigator>
+                如果你还没有 AtmosphereMao+ 用户可以 <navigator url="/pages/auth/register" class="weui-agree__link">注册新用户</navigator>
             </view>
 
             <view class="weui-btn-area">
@@ -103,6 +103,19 @@
                     // 201 为登录正确，返回上一页
             if (authResponse.statusCode === 201) {
               wepy.navigateBack()
+            } else if (authResponse.statusCode === 200) {
+              if (authResponse.data.status === 0) {
+                console.log(authResponse)
+                wepy.showToast({
+                  title: authResponse.data.data,
+                  icon: 'success'
+                })
+              } else {
+                wepy.showToast({
+                  title: authResponse.data.data,
+                  icon: 'success'
+                })
+              }
             }
           } catch (err) {
             wepy.showModal({
