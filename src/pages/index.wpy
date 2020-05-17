@@ -1,0 +1,230 @@
+<style lang="less">
+  .weui-media-box__info__meta {
+    margin: 0;
+    font-size: 12px;
+  }
+  .topic-info {
+    margin-top: 5px;
+  }
+  .topic-title {
+    white-space: normal;
+    font-size: 14px;
+  }
+  .avatar {
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 50px;
+    height: 50px;
+  }
+  .reply-count {
+    background-color: #d8d8d8;
+    float: right;
+  }
+  /*分类*/
+  .weui-flex {
+      align-items: center;
+  }
+  .weui-cells {
+      margin-top: 0;
+      opacity: 0;
+      transition: .3s;
+      &:before, &:after {
+          display: none;
+      }
+      &_show {
+          opacity: 1;
+      }
+  }
+  .weui-cell {
+      &:before {
+          right: 15px;
+      }
+  }
+  .category-list__item {
+      margin: 10px 0;
+      background-color: #FFFFFF;
+      border-radius: 2px;
+      overflow: hidden;
+      &:first-child {
+          margin-top: 0;
+      }
+  }
+  .category-list__item_selected {
+      background-color: #eeeeee;
+  }
+  .category-list__img {
+      width: 30px;
+      height: 30px;
+  }
+
+  .category-list__item-hd {
+      padding: 20px;
+      transition: opacity .3s;
+      &_show {
+          opacity: .4;
+      }
+  }
+  .category-list__item-bd {
+      height: 0;
+      overflow: hidden;
+      &_show {
+          height: auto;
+      }
+  }
+  .weui-btn-area{
+  }
+</style>
+<template>
+    <view class="page">
+        <view class="category-list__item">
+            <!--<view class="weui-flex category-list__item-hd" @tap="searchToggle">-->
+                <!--<view class="weui-flex__item page-title">{{ currentSearchName }}</view>-->
+                <!--<image class="category-list__img" src="/images/pack.png" />-->
+            <!--</view>-->
+            <!--<view class="category-list__item-bd"-->
+                 <!--:class="{'category-list__item-bd_show' : searchOpen}">-->
+                <!--<view class="weui-cells" :class="{ 'weui-cells_show' : searchOpen }">-->
+                    <!--<view @tap="changeSearch" class="weui-cell weui-cell_access" :class="{'category-list__item_selected' : !currentSearchIsNotNull }">-->
+                        <!--<div class="weui-cell__bd">话题</div>-->
+                    <!--</view>-->
+            <view class="weui-search-bar" id="searchBar">
+                <form class="weui-search-bar__form" bindsubmit="submit">
+                    <view class="weui-search-bar__box">
+                        <input class="weui-input weui-search-bar__input" id="searchInput" type="text" placeholder="搜索" name="search"
+                               bindconfirm="submit" value="{{this.currentSearch}}"/>
+
+                        <!--<view class="weui-btn-area">-->
+                            <!--<button class="weui-btn" type="primary" formType="submit">搜索</button>-->
+                        <!--</view>-->
+                    </view>
+                </form>
+            </view>
+                <!--</view>-->
+            <!--</view>-->
+        <!--</view>-->
+    <view class="page__bd">
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__hd">动态列表</view>
+        <view class="weui-panel__bd">
+          <view wx:for="{{trends}}" wx:key="{{item.id}}">
+          <!--<view wx:for="{{trends}}" wx:key="{{index}}">-->
+            <a url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title trend-title">{{ item.title }}</view>
+
+                <view class="weui-media-box__info trend-info">
+                  <view class="weui-media-box__info__meta">{{ item.create_user[0].name}} • </view>
+                  <view class="weui-media-box__info__meta">{{ item.created_at }}</view>
+                </view>
+              </view>
+              <!--<view class="weui-badge reply-count">{{ trend.reply_count }}</view>-->
+            </a>
+          </view>
+            <view class="weui-loadmore weui-loadmore_line" v-if="noMoreData">
+                <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多数据</view>
+            </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+</template>
+
+<script>
+    import wepy from '@wepy/core'
+    import { getTrends } from '@/utils/trends'
+
+    wepy.page({
+      data: {
+        // 话题数据
+        trends: [],
+        // 当前分页
+        page: 1,
+        // 是否还有更多数据
+        noMoreData: false,
+        // 是否在加载中
+        isLoading: false,
+        // 如果在请求还未完成时，连续滑动到最底部，会多次触发下拉刷新
+        // 所以可以增加一个 isLoading 的标志位，只有一次请求结束以后才允许再次加载。
+        // 当前搜索框
+        currentSearch: '',
+        // 是否显示搜索框
+        searchOpen: true
+      },
+      computed: {
+        currentSearchIsNull() {
+          return this.currentSearch === ''
+        },
+        currentSearchName() {
+          return this.currentSearch || '搜索内容'
+        }
+      },
+      async onLoad(e, search = '') {
+        // 记录当前search位置
+        this.currentSearch = search
+        if (search === '') {
+          this.loadTrends()
+        } else {
+          this.loadTrends(true, search)
+        }
+      },
+      // 停止下拉刷新
+      async onPullDownRefresh() {
+        this.page = 1
+        this.noMoreData = false
+        await this.loadTrends(true, this.currentSearch)
+        wx.stopPullDownRefresh()
+      },
+
+      async onReachBottom () {
+        // 如果没有更多内容，直接返回
+        if (this.noMoreData || this.isLoading) {
+          return
+        }
+
+        this.isLoading = true
+        this.page += 1
+
+        await this.loadTrends()
+
+        this.isLoading = false
+        // 开始加载数据前，设置 isLoading 为 true，加载完成后，设置为 false
+        // 这样，如果处于加载中，则直接返回，不会触发下拉刷新。
+      },
+
+      methods: {
+        // 获取话题数据
+        async loadTrends(reset = false, search = '') {
+            // 参数
+          let params = {
+            page: this.page,
+            search: search
+          }
+            // 请求话题列表接口
+          const trendsResponse = await getTrends(params)
+
+          // 将数据合并到 this.topics
+          this.trends = reset ? trendsResponse.data.data : this.trends.concat(trendsResponse.data.data)
+          const pagination = trendsResponse.data.meta
+            // 根据分页设置是否还有更多数据
+          if (pagination.current_page === pagination.last_page) {
+            this.noMoreData = true
+          }
+        },
+        searchToggle() {
+          this.searchOpen = !this.searchOpen
+        },
+          // 搜索提交
+        async submit(search = null) {
+          this.currentSearch = search.detail.value
+          let searchData = search.detail.value
+          this.page = 1
+          // 设置 reset 为 true
+          this.onLoad('', searchData)
+        }
+
+      }
+
+    })
+</script>
