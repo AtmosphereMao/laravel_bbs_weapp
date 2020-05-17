@@ -23,12 +23,12 @@
             <view class="weui-cells weui-cells_after-title">
                 <!-- 已登录 -->
                 <navigator class="weui-cell" wx:if="{{ user }}" url="/pages/users/edit">
-                    <view class="weui-cell__hd avatar-wrap">
-                        <image class="avatar" src="{{ user.avatar }}" style="width: 50%"/>
-                    </view>
+                    <!--<view class="weui-cell__hd avatar-wrap">-->
+                        <!--<image class="avatar" src="{{ user.avatar }}" style="width: 50%"/>-->
+                    <!--</view>-->
                     <view class="weui-cell__bd">
                         <view>{{ user.name }}</view>
-                        <view class="page__desc">{{ user.introduction || '' }}</view>
+                        <view class="page__desc">账号积分：{{ user.balance }}</view>
                     </view>
                     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
                 </navigator>

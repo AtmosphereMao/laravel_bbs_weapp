@@ -39,21 +39,22 @@
     export default class extends wepy.app {
       config = {
         pages: [
-          'pages/index',
+          'pages/trends/index',
           'pages/users/me',
           'pages/users/edit',
           'pages/auth/login',
           'pages/auth/register'
         ],
         window: {
+          enablePullDownRefresh: true,
           backgroundTextStyle: 'light',
           navigationBarBackgroundColor: '#fff',
-          navigationBarTitleText: 'LaraBBS',
+          navigationBarTitleText: 'AtmosphereMao+',
           navigationBarTextStyle: 'black'
         },
         tabBar: {
           list: [{
-            pagePath: 'pages/index',
+            pagePath: 'pages/trends/index',
             text: '首页',
             iconPath: 'images/index.png',
             selectedIconPath: 'images/index_selected.png'
