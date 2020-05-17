@@ -1,0 +1,86 @@
+<style lang="less">
+    .page{
+        background-color: #FFFFFF;
+    }
+    .avatar-wrap {
+        position: relative;
+        margin-right: 10px;
+    }
+    .avatar {
+        width: 50px;
+        height: 50px;
+        display: block;
+        border-radius: 50%;
+    }
+    .trends-title {
+        padding: 15px;
+    }
+    .weui-cell__info__meta{
+        font-size: 16px;
+        color: gold;
+    }
+</style>
+<template>
+    <view class="page">
+        <view class="page__bd">
+            <view class="weui-cells weui-cells_after-title">
+                <navigator class="weui-cell">
+                    <view class="weui-cell__bd">
+                        <view class="weui-cell__info__meta">Founder • </view>
+                        <view class="weui-cell__info">{{ trend.create_user[0].name }}</view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="trends-title">
+                <view class="page__title">{{ trend.title }}</view>
+                <view class="weui-media-box__info topic-info">
+
+                    <view class="weui-media-box__info__meta">{{trend.backbone}} </view>
+                    <view class="weui-media-box__info__meta"><datetime-diff>{{trend.created_at}}</datetime-diff> </view>
+
+                </view>
+            </view>
+            <view class="weui-article">
+                <rich-text nodes="{{trend.content}}"></rich-text>
+            </view>
+        </view>
+    </view>
+</template>
+<config>
+    {
+    navigationBarTitleText: '话题详情',
+    usingComponents: {
+    "datetime-diff": "~@/components/datetime-diff"
+    }
+    }
+</config>
+<script>
+    import wepy from '@wepy/core'
+    import { getTrends } from '@/api/trends'
+
+    wepy.page({
+      data: {
+            // 话题数据
+        trend: null
+      },
+      methods: {
+            // 获取话题数据
+        async loadTrends(id) {
+          const trendsResponse = await getTrends(id)
+
+          this.trend = trendsResponse.data
+        }
+      },
+      onLoad(options) {
+        this.loadTrends(options.id)
+      },
+      onShareAppMessage () {
+        return {
+                // 标题是话题标题
+          title: this.tend.title,
+                // 路径为话题详情路径
+          path: '/pages/trends/show?id=' + this.trend.id
+        }
+      }
+    })
+</script>

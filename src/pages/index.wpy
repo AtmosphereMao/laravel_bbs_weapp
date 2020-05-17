@@ -109,7 +109,7 @@
         <view class="weui-panel__bd">
           <view wx:for="{{trends}}" wx:key="{{item.id}}">
           <!--<view wx:for="{{trends}}" wx:key="{{index}}">-->
-            <a url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+              <navigator url="/pages/trends/show?id={{item.id}}" class="weui-media-box weui-media-box_appmsg">
               <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
                 <view class="weui-media-box__title trend-title">{{ item.title }}</view>
 
@@ -119,7 +119,7 @@
                 </view>
               </view>
               <!--<view class="weui-badge reply-count">{{ trend.reply_count }}</view>-->
-            </a>
+            </navigator>
           </view>
             <view class="weui-loadmore weui-loadmore_line" v-if="noMoreData">
                 <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多数据</view>

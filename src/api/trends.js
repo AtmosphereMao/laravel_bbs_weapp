@@ -1,7 +1,7 @@
 import { request } from '@/utils/request'
 
-export function getTrends(data) {
-  return request('trends', {
+export function getTrends(id, data) {
+  return request('trends/' + id, {
     data: data
   })
 }

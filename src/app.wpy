@@ -40,6 +40,7 @@
       config = {
         pages: [
           'pages/index',
+          'pages/trends/show',
           'pages/users/me',
           'pages/users/edit',
           'pages/auth/login',
