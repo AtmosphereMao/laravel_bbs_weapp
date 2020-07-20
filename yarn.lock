@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@wepy/core@^2.0.0-alpha.14":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@wepy/core/-/core-2.1.0.tgz#894dd88f79baae88df25ad55a4375432777a4a10"
+  integrity sha512-ZEkeL5pnvDra3XN9aNGzNJDwfNMr3eLMT/0tYoQq8Yo9ELLc26FVfyhl6kTLHSV+IBBG80XABDan1yC6ZY0TQg==
+  dependencies:
+    miniprogram-api-typings "^2.10.3-1"
+
 acorn-jsx@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-3.0.1.tgz#afdf9488fb1ecefc8348f6fb22f464e32a58b36b"
@@ -1597,10 +1604,10 @@ lodash.keysin@^3.0.0:
     lodash.isarguments "^3.0.0"
     lodash.isarray "^3.0.0"
 
-lodash@^4.0.0, lodash@^4.17.4, lodash@^4.2.1, lodash@^4.3.0:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+lodash@^4.0.0, lodash@^4.17.19, lodash@^4.17.4, lodash@^4.2.1, lodash@^4.3.0:
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
@@ -1642,6 +1649,11 @@ minimist@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
   integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
+
+miniprogram-api-typings@^2.10.3-1:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/miniprogram-api-typings/-/miniprogram-api-typings-2.11.0.tgz#c0a91ca2fea80e344509399c580cbad504a8f905"
+  integrity sha512-W+V267Ys4YqyMpLrAmpYCOzDlDAjd3Hhy7UKOAoztoyS/hDZgNQ1OhM2/pGnqVyLmz78U3oqxGx8Z+/SMrMZaQ==
 
 mkdirp@^0.5.0, mkdirp@^0.5.1:
   version "0.5.1"
@@ -2332,6 +2344,11 @@ wepy@^1.6.0:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/wepy/-/wepy-1.7.2.tgz#679052401f2b1f4818644bc44f88b72975491a64"
   integrity sha512-22Q338OY2wV1kuINAtQQmO6V9r00wNTgLPOOOASZe8tdq0lGxv9FnFWxA7SqJihQJEeWXERFd/gN7GKQQ1CU1w==
+
+weui@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/weui/-/weui-2.3.0.tgz#b6a0280c54a1072eaccb05eb69c2dabfa000cf64"
+  integrity sha512-0/oGhN866Pe5OKzzzsghazOyn742sobytJSSKv8oF8XVuwEMFPdCKVNr0Z8Taaue1DxTwX0OVxAxcbLX3qYgRQ==
 
 which@^1.2.9:
   version "1.3.1"
